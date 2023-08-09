@@ -6,12 +6,69 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(../public/img/background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: grey;
+  margin: 0 25px;
+  position: relative;
+}
+.navbar-nav .nav-item .nav-link.active {
+  color: white !important;
+}
+.navbar-nav .nav-item .nav-link.active::after {
+  transform: scale(1);
+}
+.navbar-nav .nav-item .nav-link:hover {
+  color: rgb(189, 189, 189);
+}
+
+.navbar-nav .nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 2px;
+  width: 100%;
+  transform: scale(0);
+  background-color: white;
+  transition: 0.3s all;
+}
+.navbar-nav .nav-item:hover .nav-link::after {
+  transform: scale(1);
+}
+
+.banner_box {
+  background-color: #f8f9fa;
+}
+
+.item_box {
+  background-color: #f8f9fa;
+}
+
+.item_icon {
+  background-color: rgb(39, 125, 253);
+  padding: 10px 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.item_icon #icon {
+  font-size: 30px;
+  display: inline-block;
+  color: white;
+}
+
+.item_body .sub_title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#footer {
+  background-color: #212529;
 }
