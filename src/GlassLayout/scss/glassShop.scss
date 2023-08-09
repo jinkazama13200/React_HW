@@ -1,0 +1,72 @@
+@import "./variables.scss";
+
+.shop {
+  .shop_title {
+    color: $color-pink-1;
+    background-color: $color-pink-2;
+    padding: 30px 0px;
+  }
+  .shop_content {
+    margin-top: 100px;
+    gap: 300px;
+    .shop_model {
+      .model {
+        position: relative;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: $color-pink;
+
+        .product_img {
+          position: absolute;
+          width: 50%;
+          top: 35%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .model_img {
+        border-radius: 10px;
+        width: 300px;
+      }
+    }
+    .list {
+      padding: 20px;
+      border-radius: 10px;
+      width: 50%;
+      background-color: $color-pink;
+      .list_title {
+        text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+        color: $color-pink-2;
+        background-color: $color-pink-1;
+      }
+    }
+  }
+}
+
+.item_list {
+  height: 50vh;
+  overflow: auto;
+
+  .item {
+    margin: 0 20px 10px 20px;
+    border-radius: 10px;
+    background-color: $color-white-basic;
+    .item_img {
+      padding: 10px;
+      width: 30%;
+      object-fit: contain;
+    }
+    .item_info {
+      border-radius: 10px;
+      background-color: $color-pink-2;
+      padding: 30px;
+      width: 70%;
+      .item_name {
+        color: $color-pink-1;
+      }
+    }
+  }
+}
