@@ -1,5 +1,11 @@
+import GlassesLayout from "./GlassLayout/GlassesLayout";
+
 function MyLayout() {
-  return <></>;
+  return (
+    <>
+      <GlassesLayout />
+    </>
+  );
 }
 
 export default MyLayout;
