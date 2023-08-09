@@ -5,7 +5,7 @@ import glasses from "./glasses.json";
 import { useState } from "react";
 
 export default function GlassShop() {
-  const [glass, setGlass] = useState("../../public/img/v1.png");
+  const [glass, setGlass] = useState("");
   const handleChangeGlass = (id) => {
     console.log(id);
     setGlass(id);
