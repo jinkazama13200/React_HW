@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import ShoeList from "./ShoeList";
 import Cart from "./Cart";
 import data from "../data/data.json";
+import ShoeDetails from "./ShoeDetails";
 export default function ShoeShop() {
   const [cartItems, setCartItems] = useState([]);
-  const [isOpenCart, setIsOpenCart] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState([]);
+
+  const handleSelectedItem = (item) => {
+    setSelectedItem(item);
+    setIsOpenModal(true);
+    console.log(item);
+  };
 
   const totalCount = cartItems.reduce((result, value) => {
     return result + value.quantity;
@@ -80,7 +89,10 @@ export default function ShoeShop() {
   };
 
   const handleCloseCart = () => {
-    setIsOpenCart(false);
+    setIsOpen(false);
+  };
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
   };
 
   return (
@@ -100,10 +112,7 @@ export default function ShoeShop() {
           </span>{" "}
           Shop
         </h1>
-        <button
-          onClick={() => setIsOpenCart(true)}
-          className="btn btn-dark px-5"
-        >
+        <button onClick={() => setIsOpen(true)} className="btn btn-dark px-5">
           Cart({totalCount})
         </button>
       </div>
@@ -114,14 +123,21 @@ export default function ShoeShop() {
         onAddToCart={handleAddToCart}
         products={data}
         cartItems={cartItems}
+        onSelectedItem={handleSelectedItem}
       />
-      {isOpenCart && (
+      {isOpen && (
         <Cart
           totalPrice={totalPrice}
           onRemoveItem={handleRemoveItem}
           onCloseCart={handleCloseCart}
           onSuccessPurchase={handleSuccessPurchase}
           cartItems={cartItems}
+        />
+      )}
+      {isOpenModal && (
+        <ShoeDetails
+          onCloseModal={handleCloseModal}
+          selectedItem={selectedItem}
         />
       )}
     </div>

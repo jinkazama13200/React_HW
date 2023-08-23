@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../scss/_shoeItem.scss";
 import numberFormat from "../NumberFormat";
 
@@ -8,16 +8,24 @@ export default function ShoeItem({
   getItemQuantity,
   onIncreaseQuantity,
   onDecreaseQuantity,
+  onSelectedItem,
 }) {
   const quantity = getItemQuantity(item);
+  const imgRef = useRef();
   return (
     <>
       <div className="card mt-4">
         <div className="card-header">
-          <div className="card-overlay">
-            <p>{item.alias}</p>
-            <p>{item.description}</p>
-            <p>{item.shortDescription}</p>
+          <div onClick={() => imgRef.current.click()} className="card-overlay">
+            <p>Click on the image to show details</p>
+            <button
+              hidden
+              ref={imgRef}
+              className="detailsBtn"
+              onClick={() => onSelectedItem(item)}
+            >
+              More Details
+            </button>
           </div>
           <img className="card-img" src={item.image} alt={item.name} />
         </div>

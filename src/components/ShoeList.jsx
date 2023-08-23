@@ -7,7 +7,11 @@ export default function ShoeList({
   getItemQuantity,
   onIncreaseQuantity,
   onDecreaseQuantity,
+  onSelectedItem,
 }) {
+  const handleSelectedItem = (item) => {
+    onSelectedItem(item);
+  };
   return (
     <div className="row">
       {products.map((value) => {
@@ -19,6 +23,7 @@ export default function ShoeList({
               getItemQuantity={getItemQuantity}
               item={value}
               onAddToCart={onAddToCart}
+              onSelectedItem={handleSelectedItem}
             />
           </div>
         );
