@@ -21,18 +21,6 @@
     border-radius: 5px 5px 0 0;
     opacity: 0;
     transition: 0.3s;
-    .detailsBtn {
-      padding: 10px 30px;
-      border: none;
-      border-radius: 5px;
-      background-color: rgb(39, 39, 39);
-      color: white;
-      transition: 0.3s;
-      &:hover {
-        color: black;
-        background-color: white;
-      }
-    }
   }
   .card-body {
     .card-name {
